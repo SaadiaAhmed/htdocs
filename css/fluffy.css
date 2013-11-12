@@ -1,0 +1,15 @@
+#clickMe{
+background-color: green;
+padding: 20px;
+text-align: center;
+display;block;
+width:205px;
+border: 2px solid #000;
+}
+#showpic{
+background:#d8b36e;
+padding: 20px;
+text-align: center;
+display;none;
+width:205px;
+}
