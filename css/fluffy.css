@@ -1,28 +1,19 @@
-<<<<<<< HEAD
-a:link img, a:visited img {
-display:none;
-}
-a:hover img, a:active img {
-display:block;
-}
-a{
-text-decoration:none;
-color: red;
-}
-=======
+
+
 #clickMe{
-background-color: green;
+background-color:#d8b36e;
 padding: 20px;
 text-align: center;
-display;block;
+display:block;
 width:205px;
 border: 2px solid #000;
+height: 50px;
 }
+
 #showpic{
 background:#d8b36e;
 padding: 20px;
 text-align: center;
-display;none;
+display:none;
 width:205px;
 }
->>>>>>> a369dc4951b8c490576d4da3622947e088c57ec0

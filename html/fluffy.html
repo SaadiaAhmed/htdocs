@@ -1,40 +1,25 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html> 
 	<head>
 		<title>Furry Friends Campaign: jQuery Proof-of-Concept </title>
 		<link rel="stylesheet" type="text/css" href="http://localhost/css/fluffy.css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
 	</head>
-	<body>
-		<div id="showfriend">
-		<a href="#">Our Furry Friends Need Your Help
-		<img src="http://localhost/img/furry_friend.jpg">
-		</a>
-		</div>
-	</body>
-</html>
-=======
-<!DOCTYPE html><html> <head>
-<title>Furry Friends Campaign: jQuery
-Proof-of-Concept</title>
-<link rel="stylesheet" type="text/
-css" href="http://localhost/css/fluffy.css">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
-</head>
+	
 <body>
-<div id="clickMe">Show me the furry friend of the day </div>
- <div id="showpic"> <img src="http://localhost/img/furry_friend.jpg"> </div>
-<div id="showfriend">
-<a href="#">Our Furry Friends Need Your Help </a>
-<script>
-$(document).ready (function(){
-$("#clickMe").click (function(){
-$("img") .fadeIn(1000);
-$("showpic"). slideToggle("slow");
-});
-});
-</script>
-</div>
+<div id="clickMe"> Show me the furry friend of the day  </div>
+ 		<div id="showpic"> <img src="http://localhost/img/furry_friend.jpg"> </div>
+			<script>
+						$(document).ready( function() {
+
+							$("#clickMe"). click( function() {
+								$("#showpic").slideDown();
+							
+							});
+						});
+							
+			</script>
+	
 </body>
 </html>
->>>>>>> a369dc4951b8c490576d4da3622947e088c57ec0
+
