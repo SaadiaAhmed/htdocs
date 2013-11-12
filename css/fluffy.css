@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 a:link img, a:visited img {
 display:none;
 }
@@ -8,3 +9,20 @@ a{
 text-decoration:none;
 color: red;
 }
+=======
+#clickMe{
+background-color: green;
+padding: 20px;
+text-align: center;
+display;block;
+width:205px;
+border: 2px solid #000;
+}
+#showpic{
+background:#d8b36e;
+padding: 20px;
+text-align: center;
+display;none;
+width:205px;
+}
+>>>>>>> a369dc4951b8c490576d4da3622947e088c57ec0
