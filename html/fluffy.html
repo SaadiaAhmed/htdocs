@@ -13,8 +13,11 @@
 						$(document).ready( function() {
 
 							$("#clickMe"). click( function() {
+
+								$("#showpic img").css("display","none");	
 								$("#showpic").slideDown();
-							
+								$("#showpic img").fadeIn(1000);
+
 							});
 						});
 							
