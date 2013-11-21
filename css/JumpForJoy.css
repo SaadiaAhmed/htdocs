@@ -31,3 +31,9 @@ margin: 0 auto;
 #four{
 	float:left;
 }
+
+.guess_box p{
+	font-size: 24px;
+	font-style: bold;
+	color: red;
+}
