@@ -1,0 +1,51 @@
+div{
+float:left;
+text-align:left;
+border: solid #000 3px;
+}
+.guess_box{
+	height:245px;
+}
+#header{
+ 	width:100%;
+ 	border: 0px;
+ 	height:50px;
+	padding-bottom:20px;
+}
+
+#main{
+background-color: grey;
+height:500px;
+
+
+}
+
+.my_hover{
+	border: solid #00f 3px;
+}
+
+.discount{
+	border: solid #0f0 3px;
+}
+
+.no_discount{
+	border: solid #f00 3px;
+
+#one{
+	float:left;
+}
+#two{
+	float:left;
+}
+#three{
+	float:left;
+}
+#four{
+	float:left;
+}
+
+.guess_box p{
+	font-size: 24px;
+	font-style: bold;
+	color: red;
+}
