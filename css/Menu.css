@@ -1,51 +1,47 @@
-div{
-float:left;
-text-align:left;
-border: solid #000 3px;
+
+.menu_wrapper{
+    width: 96%;
+    border: 1px solid gray;
 }
-.guess_box{
-	height:245px;
+ 
+.topper{
+    padding: 2%;
+    width: 96%;
+    height: 100px;
+    overflow: hidden;
+    border-bottom: 1px solid gray;
 }
-#header{
- 	width:100%;
- 	border: 0px;
- 	height:50px;
-	padding-bottom:20px;
+ 
+ 
+.left_col{
+    float: left;
+    padding: 4%;
+    width: 41%;
+    height: 1000px;
+    border-right: 1px solid gray;
+   
+}
+ 
+.right_col{
+    float: right;
+    padding: 4%;
+    width: 41%;
+    height: 1000px;
+    border-left: 1px solid gray;
+}
+ 
+.hamburger{
+border: 1px solid red;	
 }
 
-#main{
-background-color: grey;
-height:500px;
-
-
+.fish{
+border: 2px solid blue;	
 }
 
-.my_hover{
-	border: solid #00f 3px;
+.portobello{
+background-color: red;	
 }
 
-.discount{
-	border: solid #0f0 3px;
-}
-
-.no_discount{
-	border: solid #f00 3px;
-
-#one{
-	float:left;
-}
-#two{
-	float:left;
-}
-#three{
-	float:left;
-}
-#four{
-	float:left;
-}
-
-.guess_box p{
-	font-size: 24px;
-	font-style: bold;
-	color: red;
+.veg_leaf{
+list-style-image:url('http://localhost/img/leaf.png');
 }

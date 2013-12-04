@@ -3,24 +3,35 @@
 	<head>
 		<title> Menu </title>
 		<link rel="stylesheet" type="text/css" href="http://localhost/css/Menu.css">
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>	
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
 	</head>
+	
 	<body>		
-		<div id="menu_wrapper" class="no_hover"> 
-		<h4>Dinner Entree </h4>
-			
+		<div class="menu_wrapper"> 
+			<header class="topper">
+				<h2>Our Menu </h2>
+				<nav>
+					 <button id="Veg_On"> Go Vegetarian</button> 
+					 <button id="restore_Me"> Restore Menu </button>
+				</nav>
+			</header>
+		</div>
+
+		<div class="left_col">
+			<h4>Dinner Entree </h4>
 		<ul class="menu_entrees">	
-				<li> Thai Style Halibut 
-					<ul class="menu_list">
-						<li>coconut milk</li>
-						<li class="fish">pan-fried halibut</li>
-						<li>early autumn vegetables</li>
-						<li>Thai spices </li>
-					</ul>
-				</li>
 
+				<li>Braised Delight
+							<ul class="menu_list">
+								<li  class="meat">lamb shoulder</li>
+								<li >cippolini onions</li>
+								<li >carrots</li>
+								<li >baby turnip</li>
+								<li >braising jus</li>
+							</ul>
+						</li>
 
-					<li> House Grilled Panini 
+				<li> House Grilled Panini 
 					<ul class="menu_list">
 						<li>prosciutto</li>
 						<li>provolone</li>
@@ -29,7 +40,30 @@
 					</ul>
 				</li>
 
-					<li> Southwest Slider
+			<li> Thai Style Halibut 
+					<ul class="menu_list">
+						<li>coconut milk</li>
+						<li class="fish">pan-fried halibut</li>
+						<li>early autumn vegetables</li>
+						<li>Thai spices </li>
+					</ul>
+				</li>
+
+				<li>House Slider
+						<ul class="menu_list">
+							<li>marinated eggplant</li>
+							<li>zucchini</li>
+							<li class="hamburger">hamburger</li>
+							<li>balsamic vinaigrette</li>
+							<li>onion</li>
+							<li>carrots</li>
+							<li>Multi-grain roll</li>
+							<li>goat cheese</li>
+						</ul>
+					</li>
+
+
+			<li> Southwest Slider
 					<ul class="menu_list">
 						<li>whole chiles</li>
 						<li class="hamburger">hamburger</li>
@@ -47,17 +81,12 @@
 					</ul>
 				</li>		
 			
-			<li>Braised Delight
-				<ul class="menu_list">
-					<li  class="meat">lamb shoulder</li>
-					<li >cippolini onions</li>
-					<li >carrots</li>
-					<li >baby turnip</li>
-					<li >braising jus</li>
-				</ul>
-			</li>
+		</ul>
+		</div>	
 
-				
+<div class="right_col">	
+			<h4>Soups</h4>
+		<ul class="menu_entrees">	
 			<li>Coconut Soup
 				<ul class="menu_list">
 					<li >coconut milk</li>
@@ -93,21 +122,13 @@
 					<li >ginger sauce</li>
 				</ul>
 			</li>
-
-
-		<script src="http://localhost/scripts/menu.js"> </script>
+		</ul>
+		</div>
 		
-	<div class="topper">
-		<h2>Our Menu</h2>
-			<ul>
-					<li class="nav"> <button id="Veg_On"> Go Vegetarian</button> </li>
-					<li class="nav"> <button id="restore_Me"> Restore Menu </button> </li>
-				</ul>
-			</li>
-
-	</div> 
 
 
+	<script src="http://localhost/scripts/menu.js"> </script>
+			
 	</body>
 
 </html>
