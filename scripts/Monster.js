@@ -1,22 +1,16 @@
 	$(document).ready(function(){
 	
-		var v = false;
-		var $f, $m;
+		var headclix = 0;
 
-		$("button#Veg_On").click(function(){
+		$("#head").click(function(){
 
-			if (v == false){
+			if(headclix > 9){
 
-				$f = $(".fish").parent().parent().detach();
-				$(".hamburger").replaceWith("<li class='portobello'><em>Portobello Mushroom</em></li>");	
-				//$(".portobello").parent().addClass("veg_leaf");
-				$(".portobello").parent().addClass("veg_leaf");
-				$(".meat").after("<li class='tofu'><em>tofu</em></li>");
-				$m = $(".meat").detach();
-				$(".tofu").parent().parent().addClass("veg_leaf");
-				v = true;
+			headclix+=1;
 			}
-			
+		else {
+		headclix=0;	
+		}
 		} );
 		
 $("button#restore_Me").click(function(){
