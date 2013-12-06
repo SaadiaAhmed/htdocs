@@ -44,6 +44,7 @@ position:absolute;
 background-image:url(http://localhost/img/frame.png);
 z-index: 3;
 overflow:hidden;
+
 }
 
 #pic_box{
