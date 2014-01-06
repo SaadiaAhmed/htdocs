@@ -1,15 +1,15 @@
 $(document).ready (function (){
 
+var Used_Cards = new Array();
+
 function card (name,suit,value){
 
 this.name = name;
 this.suit = suit;
-this. value = value;
+this.value = value;
 }
 
-
 var deck = [
-
 		new card('Ace', 'Hearts',11),
 		new card('Two', 'Hearts',2),
 		new card('Three', 'Hearts',3),
@@ -62,9 +62,104 @@ var deck = [
 		new card('Jack', 'Spades',10),
 		new card('Queen', 'Spades',10),
 		new card('King', 'Spades',10)
+	];
 
-]
+var hand = {
+	 cards: new Array(),
+	 curent_total: 0,
+	
+	sumCardTotal:  function (){
+
+	 	this.sumCardTotal= 0;
+	 	for(var i=0; i< this.cards.length; i++){
+	 		var c = this.cards[i];
+	 		this.curent_total+= c.value; 
+	 	}
+
+$("#hdrTotal").html("Total:"+ this.curent_total);
+
+if(this.curent_total > 21){
+$("#btnStick").trigger("click");
+$("#imgResult").attr('src','img/x2.png');
+$("#hdrResult").html("BUST!");
+}
+
+else if(this.curent_total == 21){
+				$("#btnStick").trigger("click");
+				$("#imgResult").attr('src','img/check.png');
+				$("#hdrResult").html("BlackJack!")
+}
+
+else if(this.curent_total <= 21 && this.cards.length == 5){
+$("#btnStick").trigger("click");
+				$("#imgResult").attr('src','img/check.png');
+				$("#hdrResult").html("BlackJack - 5 card trick!")
+							   .attr('class', 'win');
+}else{ }
+	 }
+};
+
+function Deal(){
+	for(var i; i<2; i++){
+		hit();
+	}
+}
 
 
+function GetRandom(num){
+var my_num = Math.floor(Math.random()*num);
+return my_num;
+}
+
+
+
+
+
+
+
+function hit(){
+
+var good_card = false;
+
+do {
+	var index = GetRandom(52);
+	
+	if(!$.inArray(index, Used_Cards) > -1) {
+
+	good_card =true;
+
+	var c = deck [index];
+	Used_Cards[Used_Cards.length] = index;
+	hand.cards[hand.cards.length]= c;
+
+	var $d = $("<div>");
+				$d.addClass("current_hand")
+				  .appendTo("#my_hand");
+
+					$("<img>").attr('alt', c.name + ' of ' + c.suit )
+						  .attr('title', c.name + ' of ' + c.suit )
+						  .attr('src', 'http://localhost/img/cards/' + c.suit + '/' + c.name + '.jpg' )
+						  .appendTo($d)
+						  .fadeOut('slow')
+						  .fadeIn('slow');
+				
+	}
+
+}
+while (!good_card);	
+good_card = false;
+}
+
+$("#btnDeal").click(function(){
+
+	Deal();
+$(this).toggle();
+		$("#btnHit").toggle();
+		$("#btnStick").toggle();
+});
+
+	$("#btnHit").click( function(){
+		hit();
+	});
 
 });
