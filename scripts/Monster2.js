@@ -1,12 +1,59 @@
 	$(document).ready(function(){
 
+		var w = 367;
+		var m = 10;
 		var clix = [0,0,0,0];
 		var int1, int2, int3;
 		//var headclix = 0;
 		//var eyeclix = 0;
 		//var noseclix = 0;
 		//var mouthclix = 0;
-		
+
+		$("#btnRandom").click(randomize);
+		$("#btnReset").click(reset);
+
+		function getRandom(num){
+			var my_random_num = Math.floor(Math.random()*num);
+			return my_random_num;
+		}
+
+		function randomize(){
+			$(".face").each(function(index){
+
+			var target_pos = getRandom(m);
+			var current_pos = clix[index];
+			clix[index] = target_pos;
+
+			if (target_pos > current_pos){
+				var move_to =(target_pos - current_pos)*w;
+				$(this).animate({left:"-="+move_to+"px"},500);
+			} 
+
+			else if(target_pos < current_pos){
+				var move_to = ( current_pos - target_pos ) * w;
+				$(this).animate({left:"+="+move_to+"px"},500);
+			}
+
+			else {
+				// Do not do any thing
+			}
+
+			//var move_to = target_pos * w;
+			//$(this).animate({left:"-="+move_to+"px"},500);
+
+			});
+
+		};
+
+		function reset(){
+			$(".face").each(function(index){
+				clix[index] = 0;
+			$(this).animate({left:"0px"},500);
+			
+				});
+		}
+
+
 		goLightening();
 
 		window.onblur = stopLightening;

@@ -64,7 +64,16 @@ $("#mouth").click(function(){
 		}
 		});
 
+window.onblur = stopLightening;
 
+window.onfocus = goLightening;
+
+stopLightening(){
+
+}
+goLightening(){
+
+}
 
 		}); // end of document ready function 
 		
