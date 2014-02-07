@@ -2,6 +2,7 @@ $(document).ready (function (){
 
 var Used_Cards = new Array();
 
+<<<<<<< HEAD
 function Deal(){
 	for(var i; i<2; i++){
 		hit();
@@ -15,6 +16,8 @@ return my_num;
 }
 
 
+=======
+>>>>>>> 2dcaccfbdf597a69a596f8882ac658b097962dd3
 function card (name,suit,value){
 
 this.name = name;
@@ -22,6 +25,7 @@ this.suit = suit;
 this.value = value;
 }
 
+<<<<<<< HEAD
 var hand = {
 	 cards: new Array(),
 	 curent_total:0,
@@ -52,6 +56,8 @@ $("#hdrResult").html("BLACK JACK - 5 card tricks!");
 };
 
 
+=======
+>>>>>>> 2dcaccfbdf597a69a596f8882ac658b097962dd3
 var deck = [
 		new card('Ace', 'Hearts',11),
 		new card('Two', 'Hearts',2),
@@ -107,6 +113,62 @@ var deck = [
 		new card('King', 'Spades',10)
 	];
 
+<<<<<<< HEAD
+=======
+var hand = {
+	 cards: new Array(),
+	 curent_total: 0,
+	
+	sumCardTotal:  function (){
+
+	 	this.sumCardTotal= 0;
+	 	for(var i=0; i< this.cards.length; i++){
+	 		var c = this.cards[i];
+	 		this.curent_total+= c.value; 
+	 	}
+
+$("#hdrTotal").html("Total:"+ this.curent_total);
+
+if(this.curent_total > 21){
+$("#btnStick").trigger("click");
+$("#imgResult").attr('src','img/x2.png');
+$("#hdrResult").html("BUST!");
+}
+
+else if(this.curent_total == 21){
+				$("#btnStick").trigger("click");
+				$("#imgResult").attr('src','img/check.png');
+				$("#hdrResult").html("BlackJack!")
+}
+
+else if(this.curent_total <= 21 && this.cards.length == 5){
+$("#btnStick").trigger("click");
+				$("#imgResult").attr('src','img/check.png');
+				$("#hdrResult").html("BlackJack - 5 card trick!")
+							   .attr('class', 'win');
+}else{ }
+	 }
+};
+
+function Deal(){
+	for(var i; i<2; i++){
+		hit();
+	}
+}
+
+
+function GetRandom(num){
+var my_num = Math.floor(Math.random()*num);
+return my_num;
+}
+
+
+
+
+
+
+
+>>>>>>> 2dcaccfbdf597a69a596f8882ac658b097962dd3
 function hit(){
 
 var good_card = false;

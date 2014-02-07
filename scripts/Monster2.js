@@ -4,6 +4,7 @@
 		var m = 10;
 		var clix = [0,0,0,0];
 		var int1, int2, int3;
+<<<<<<< HEAD
 		//var headclix = 0;
 		//var eyeclix = 0;
 		//var noseclix = 0;
@@ -54,13 +55,18 @@
 		}
 
 
+=======
+		var Current_pos = clix[index];
+	
+		
+>>>>>>> 2dcaccfbdf597a69a596f8882ac658b097962dd3
 		goLightening();
 
 		window.onblur = stopLightening;
 
 		window.onfocus = goLightening;
 
-	function goLightening(){
+function goLightening(){
 
 int1= setInterval( function() {
 	lightning_one();}, 4000
@@ -128,7 +134,10 @@ $(obj). animate({left:"0px"},500);
 		
 	}
 
-
+function getRandom(num) {
+var Rand_num = Math.floor(Math.Random()*num);
+return Rand_num 
+}
 
 
 
