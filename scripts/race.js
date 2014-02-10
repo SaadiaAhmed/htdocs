@@ -1,7 +1,58 @@
 
 $(document).ready(function(){
 
-	getTime();
+ getXMLracers();
+
+$.ajax({
+
+url:"http://localhost/XML/runners.xml",
+cache:false,
+datatype:"xml",
+success: function(xml){
+
+}
+});
+
+function getXMLracers(){
+$.ajax({
+
+url:"localhost/XML/runners.xml",
+cache:false,
+datatype:"xml",
+success: function(xml){
+$("finishers_m").empty();
+$("finishers_f").empty();
+$("finishers_all").empty();
+
+$(xml).find("runner").each(function (){
+    
+                                        var info = '<li> Name: '+ $(this).find("fname").text() + ' '+ $(this).find("lname").text() + '. Time: '+ $(this).find("time").text() + '</li>';
+
+                                                if( $(this).find("gender").text() == "m" ){
+                                                                                    $("#finishers_m").append( info ); 
+                                                                                   }
+
+                                                                                        //else if ( $(this).find("gender").text() == "f" )
+                                    else if( $(this).find("gender").text() == "f"){
+                                                                                    $("#finishers_f").append(info);
+                                    }
+
+                                    else{ }
+
+                                    $("#finishers_all").append(info);
+
+                                  });
+
+getTime();
+    
+
+}
+});
+
+
+}
+
+	
 
 	function getTime(){
         var a_p = "";
