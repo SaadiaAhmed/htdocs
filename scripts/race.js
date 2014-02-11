@@ -1,22 +1,24 @@
-
 $(document).ready(function(){
+ 
+ var  FREQ = 10000;
+function startAJAXcalls(){
 
- getXMLracers();
+setTimeout( function(){
+getXMLracers();
+getXMLracers();
 
-$.ajax({
+},FREQ);
+  } 
+   
+getXMLracers();
+getXMLracers();
 
-url:"http://localhost/XML/runners.xml",
-cache:false,
-datatype:"xml",
-success: function(xml){
-
-}
-});
 
 function getXMLracers(){
+startAJAXcalls();
 $.ajax({
-
-url:"localhost/XML/runners.xml",
+type: "GET",
+url:"http://localhost/XML/runners.xml",
 cache:false,
 datatype:"xml",
 success: function(xml){
@@ -26,33 +28,29 @@ $("finishers_all").empty();
 
 $(xml).find("runner").each(function (){
     
-                                        var info = '<li> Name: '+ $(this).find("fname").text() + ' '+ $(this).find("lname").text() + '. Time: '+ $(this).find("time").text() + '</li>';
+ var info = '<li> Name: '+ $(this).find("fname").text() + ' '+ $(this).find("lname").text() + '. Time: '+ $(this).find("time").text() + '</li>';
 
-                                                if( $(this).find("gender").text() == "m" ){
-                                                                                    $("#finishers_m").append( info ); 
-                                                                                   }
+ if( $(this).find("gender").text() == "m" ){
+  $("#finishers_m").append( info ); 
+    }
 
-                                                                                        //else if ( $(this).find("gender").text() == "f" )
-                                    else if( $(this).find("gender").text() == "f"){
-                                                                                    $("#finishers_f").append(info);
+  else if( $(this).find("gender").text() == "f"){
+    $("#finishers_f").append(info);
                                     }
+ else{ }
 
-                                    else{ }
+  $("#finishers_all").append(info);
 
-                                    $("#finishers_all").append(info);
+    });
 
-                                  });
 
 getTime();
-    
-
 }
+
+
 });
 
-
 }
-
-	
 
 	function getTime(){
         var a_p = "";
@@ -71,4 +69,6 @@ getTime();
         
         $('#updatedTime').html(curr_hour + ":" + curr_min + ":" + curr_sec + " " + a_p );
     }
+//getXMLRacers();
+//startAJAXcalls();
 });
