@@ -1,37 +1,37 @@
 $(document).ready(function(){
- 
+
  var  FREQ = 10000;
 function startAJAXcalls(){
 
 setTimeout( function(){
 getXMLracers();
-getXMLracers();
+startAJAXcalls();
 
 },FREQ);
   } 
    
-getXMLracers();
-getXMLracers();
 
+getXMLracers();
+startAJAXcalls();
 
 function getXMLracers(){
-startAJAXcalls();
+
 $.ajax({
-type: "GET",
+//type: "GET",
 url:"http://localhost/XML/runners.xml",
 cache:false,
 datatype:"xml",
 success: function(xml){
-$("finishers_m").empty();
-$("finishers_f").empty();
-$("finishers_all").empty();
+$("#finishers_m").empty();
+$("#finishers_f").empty();
+$("#finishers_all").empty();
 
 $(xml).find("runner").each(function (){
     
  var info = '<li> Name: '+ $(this).find("fname").text() + ' '+ $(this).find("lname").text() + '. Time: '+ $(this).find("time").text() + '</li>';
 
  if( $(this).find("gender").text() == "m" ){
-  $("#finishers_m").append( info ); 
+  $("#finishers_m").append(info); 
     }
 
   else if( $(this).find("gender").text() == "f"){
@@ -51,6 +51,8 @@ getTime();
 });
 
 }
+
+//startAJAXcalls();
 
 	function getTime(){
         var a_p = "";
