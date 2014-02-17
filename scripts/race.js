@@ -75,6 +75,19 @@ startAJAXcalls();
 showFrequency();
  });
 
+$("#SaveNew").click(functions{
+
+var Data = $("#addrunner :input").serilizeArray();
+$.post($("#addrunner"),attr('action'),data,function (json){
+
+
+
+}
+);
+
+
+});
+
 //startAJAXcalls();
 
 	//function getTime(){
