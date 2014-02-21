@@ -56,6 +56,38 @@ getTimeAjax();
 
 }
 
+$("#btnSave").click(function(){
+
+ var Data = $("#addrunner:input").serializeArray();  
+
+ $.post($("addrunner").attr('action'), Data ,function (json){
+
+if(json.status == "fail"){
+  alert(json.message);  
+}
+
+if(json.status == "success"){
+  alert(json.message); 
+  clearInputs(); 
+}
+},
+"json");
+
+ });
+
+
+function clearInputs(){
+ $("#addrunner:input").each(function(){
+    this.val('');
+ });   
+
+}
+
+$("#addrunner").submit(function(){
+
+    return false;
+});
+
 function getTimeAjax(){
     $("#updatedTime").load("http://localhost/PHP/time.php");
 }
