@@ -60,7 +60,7 @@ $("#btnSave").click(function(){
 
  var Data = $("#addrunner:input").serializeArray();  
 
- $.post($("addrunner").attr('action'), Data ,function (json){
+ $.post($("#addrunner").attr('action'), Data ,function (json){
 
 if(json.status == "fail"){
   alert(json.message);  
