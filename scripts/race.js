@@ -10,51 +10,91 @@ $('#freq').html("Page Refreshes every "+ FREQ/1000 + "seconds ");
 function startAJAXcalls(){
 if(repeat){
 setTimeout(function(){
-getXMLracers();
+getDBRacers();
+//getXMLracers();
 startAJAXcalls();
 }, FREQ);
 }
   }
-   
+function getTimeAjax(){
+    $("#updatedTime").load("http://localhost/PHP/time.php");
+}
 
-function getXMLracers(){
+function getDBRacers(){
 
+$.getJSON("http://localhost/PHP/service.php?action=getRunners", function(json) {
 
-$.ajax({
-url:"http://localhost/XML/runners.xml",
-cache:false,
-datatype:"xml",
-success: function(xml){
+alert(json.runners.length);
+
+if(json.runners.length > 0){
+
 $("#finishers_m").empty();
 $("#finishers_f").empty();
 $("#finishers_all").empty();
 
-$(xml).find("runner").each(function (){
-    
- var info = '<li> Name: '+ $(this).find("fname").text() + ' '+ $(this).find("lname").text() + '. Time: '+ $(this).find("time").text() + '</li>';
+$.each(json.runners,function(){
+var info = '<li> Name: '+ $(this).find("fname").text() + ' '+ $(this).find("lname").text() + '. Time: '+ $(this).find("time").text() + '</li>';
 
- if( $(this).find("gender").text() == "m" ){
-  $("#finishers_m").append(info);
-    }
 
-  else if( $(this).find("gender").text() == "f"){
-    $("#finishers_f").append(info);
-                                    }
- else{ }
+if(this['gender']=='m'){
+ $("#finishers_m").append(info);  
+}
 
-  $("#finishers_all").append(info);
+else if(this['gender'] =='f'){
 
-    });
+$("#finishers_f").append(info);
+}
 
-getTimeAjax();
-//showFrequency();
-//getTime();
+else{}
+ $("#finishers_all").append(info);   
+
+});
+
 }
 
 
 });
 
-}
+getTimeAjax();
+}   
+//function getXMLracers(){
+
+
+//$.ajax({
+//url:"http://localhost/XML/runners.xml",
+//cache:false,
+//datatype:"xml",
+//success: function(xml){
+//$("#finishers_m").empty();
+//$("#finishers_f").empty();
+//$("#finishers_all").empty();
+
+//$(xml).find("runner").each(function (){
+    
+// var info = '<li> Name: '+ $(this).find("fname").text() + ' '+ $(this).find("lname").text() + '. Time: '+ $(this).find("time").text() + '</li>';
+
+ //if( $(this).find("gender").text() == "m" ){
+ // $("#finishers_m").append(info);
+    //}
+
+  //else if( $(this).find("gender").text() == "f"){
+  //  $("#finishers_f").append(info);
+                                   // }
+ //else{ }
+
+ // $("#finishers_all").append(info);
+
+ //   });
+
+//getTimeAjax();
+//showFrequency();
+//getTime();
+//}
+
+
+//});
+
+//}
 
 $("#btnSave").click(function(){
 
@@ -83,14 +123,12 @@ function clearInputs(){
 
 }
 
+
 $("#addrunner").submit(function(){
 
     return false;
 });
 
-function getTimeAjax(){
-    $("#updatedTime").load("http://localhost/PHP/time.php");
-}
 
 
 $("#Stop").click(function(){
@@ -107,7 +145,9 @@ $("#btnStart").click(function(){
 
   
 showFrequency();
-getXMLracers();
+//getXMLracers();
+
 startAJAXcalls();
+getDBRacers();
 
 });
