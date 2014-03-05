@@ -64,6 +64,7 @@ if ($_GET['action'] == 'getRunners'){
 		//print_r($row);
 		array_push($runners, array('fname'=> $row['first_name'],'lname'=> $row['last_name'], 'gender'=> $row['gender'], 'time'=> $row['finish_time']));
 		}
+		
 		echo json_encode(array("runners" => $runners));
 		exit;
 }
@@ -75,7 +76,7 @@ if ($_GET['action'] == 'getRunners'){
 //}
 
 function db_connection($query){
-	mysql_connect('127.0.0.1', 'root','logan123')
+	mysql_connect('127.0.0.1', 'root','')
 	OR die('could not connect to database');
 	mysql_select_db('runner_info');
 

@@ -37,13 +37,16 @@ $.getJSON("http://localhost/PHP/service.php?action=getRunners", function(json) {
 if(json.runners.length > 0){
 
 $("#finishers_m").empty();
-$("#finishers_f").empty();
+ $("#finishers_f").empty();
 $("#finishers_all").empty();
 
-alert("json.runners.length");
+//alert(json);
 $.each(json.runners,function(){
-var info = '<li> Name: '+ $(this).find("fname").text() + ' '+ $(this).find("lname").text() + '. Time: '+ $(this).find("time").text() + '</li>';
+  var info = '<li>Name: ' + this['fname'] + ' ' + this['lname'] + '. Time: ' +this['time'] + '</li>';
 
+  //var info = '<li> Name: '+  this['fname'] + ' '+ $(this).find("lname").text() + '. Time: '+ $(this).find("time").text() + '</li>';
+//var info = '<li> Name: '+ $(this).find("fname").text() + ' '+ $(this).find("lname").text() + '. Time: '+ $(this).find("time").text() + '</li>';
+//$.each(json.runners,function(j,val){ var info = '<li> Name: '+ val.fname + ' '+ val.lname + '. Time: '+ val.time + '</li>';
 
 if(this['gender']=='m'){
  $("#finishers_m").append(info);  
