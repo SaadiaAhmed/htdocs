@@ -3,6 +3,13 @@ $(document).ready(function(){
  var FREQ = 10000;
  var repeat = true;
 
+showFrequency();
+//getXMLracers();
+
+startAJAXcalls();
+getDBRacers();
+
+
 function showFrequency(){
 $('#freq').html("Page Refreshes every "+ FREQ/1000 + "seconds ");
 }
@@ -13,7 +20,8 @@ setTimeout(function(){
 getDBRacers();
 //getXMLracers();
 startAJAXcalls();
-}, FREQ);
+}, FREQ
+);
 }
   }
 function getTimeAjax(){
@@ -24,7 +32,7 @@ function getDBRacers(){
 
 $.getJSON("http://localhost/PHP/service.php?action=getRunners", function(json) {
 
-alert(json.runners.length);
+
 
 if(json.runners.length > 0){
 
@@ -32,6 +40,7 @@ $("#finishers_m").empty();
 $("#finishers_f").empty();
 $("#finishers_all").empty();
 
+alert("json.runners.length");
 $.each(json.runners,function(){
 var info = '<li> Name: '+ $(this).find("fname").text() + ' '+ $(this).find("lname").text() + '. Time: '+ $(this).find("time").text() + '</li>';
 
@@ -144,10 +153,5 @@ $("#btnStart").click(function(){
 
 
   
-showFrequency();
-//getXMLracers();
-
-startAJAXcalls();
-getDBRacers();
 
 });
