@@ -15,9 +15,11 @@ function checkUserName(){
 	} else {
 		var theName = document.getElementById('username').value;
 		var username=escape(theName);
-		var url = "checkName.php?username= +username"
+		alert("the name:" +theName );
+		var url = "checkName.php?username=" +username;
 		request.onreadystatechange = showUserNameStaus;
 		request.open("GET", url , true);
+		alert("URL:" +url );
 		request.send(null);
 		}
 }

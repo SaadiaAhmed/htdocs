@@ -2,7 +2,7 @@
 
 function createRequest() {
  try {
-	request = new XMLHTTPRequest();   
+	request = new XMLHttpRequest();   
  } catch (tryMS) {
 	 try{
 		request = new ActiveXObject("Msxml2.XMLHTTP");
