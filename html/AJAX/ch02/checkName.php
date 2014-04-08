@@ -1,6 +1,6 @@
 <?php
 
-$takenUsernames = array ('bill', 'ted');
+$takenUsernames = array ('saadia', 'mishi');
 
 sleep(2);
 

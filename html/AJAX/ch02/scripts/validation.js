@@ -8,11 +8,20 @@ window.onload = initPage;
 }
 
 
-	function checkUserName(){
-	alert("iooi");
-	}
-	function showUserNameStaus(){
-	alert("showUserNameStaus()");
+function checkUserName(){
+	request = createRequest();
+	if(request == null){
+		alert("Unable to create request");
+	} else {
+		var theName = document.getElementById('username').value;
+		var username=escape(theName);
+		var url = "checkName.php?username= +username"
+		request.onreadystatechange = showUserNameStaus;
+		request.open("GET", url , true);
+		request.send(null);
+		}
+}
 
-		
+function showUserNameStaus(){
+	alert("showUserNameStaus()");
 	}
